@@ -19,7 +19,15 @@ df = yf.Ticker(s["symbol"]).history(period="max").reset_index()[["Date" , "Close
 
 
 df['macd'] = ta.trend.MACD(df['Close'], window_slow = 26, window_fast = 12, window_sign = 9).macd()
+df['diff'] = ta.trend.MACD(df['Close'], window_slow = 26, window_fast = 12, window_sign = 9).macd_diff()
+df['signal'] = ta.trend.MACD(df['Close'], window_slow = 26, window_fast = 12, window_sign = 9).macd_signal()
+
 df['macd'].to_csv("macd-aapl" + ".csv", sep=',')
+df['diff'].to_csv("macd-diff-aapl" + ".csv", sep=',')
+df['signal'].to_csv("macd-signal-aapl" + ".csv", sep=',')
+
 print("done")
 plt.plot(df["Date"],df["macd"])
+plt.plot(df["Date"],df["signal"])
+plt.plot(df["Date"],df["diff"])
 plt.show()
