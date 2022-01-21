@@ -6,7 +6,6 @@ Created on Tue Nov  9 16:13:11 2021
 @author: henburshtein
 """
 import sys
-sys.path.insert(1, '/Users/henburshtein/Downloads/twsapi_macunix.976.01/IBJts/source/pythonclient/ibapi/tickerspull/fundamentalpull')
 import ta
 import pandas as pd
 import matplotlib.pyplot as plt
